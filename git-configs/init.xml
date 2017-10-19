@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="95">
+  <server artifactsdir="artifacts" agentAutoRegisterKey="8f3d619b-0315-4dac-8e88-1381b75ce9cf" webhookSecret="ef213c3e-a02c-4888-b76a-e627a1fd51a4" commandRepositoryLocation="default" serverId="d10963ba-ac77-436f-8687-ee9a0975302b" />
+  <pipelines group="defaultGroup">
+    <pipeline name="test">
+      <materials>
+        <git url="https://github.com/coinbase/assume-role.git" />
+      </materials>
+      <stage name="defaultStage">
+        <jobs>
+          <job name="defaultJob">
+            <tasks>
+              <exec command="/bin/bash">
+                <arg>-lc</arg>
+                <arg>echo "hello world"</arg>
+              </exec>
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+   <config-repos>
+    <config-repo plugin="yaml.config.plugin">
+      <git url="" />
+    </config-repo>
+   </config-repos>
+</cruise>
+
