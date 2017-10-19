@@ -1,0 +1,27 @@
+environments:
+  cyan:
+    environment_variables:
+      AWS_DEFAULT_REGION: eu-west-2
+    pipelines:
+      - cyan
+pipelines:
+  cyan:
+    group: cyan
+    label_template: "${cyan[:8]}"
+    locking: off
+    materials:
+      cyan:
+        git: https://github.com/clarkio/vulnerable-app.git
+        branch: master
+    stages:
+      - Test:
+          clean_workspace: true
+          jobs:
+            HelloWorld:
+              tasks:
+                - exec:
+                    command: /bin/bash
+                    working_directory: app
+                    arguments:
+                      - "-lc"
+                      - "echo 'hello world'"
