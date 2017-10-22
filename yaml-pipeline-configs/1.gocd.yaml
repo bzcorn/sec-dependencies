@@ -21,7 +21,6 @@ pipelines:
               tasks:
                 - exec:
                     command: /bin/bash
-                    working_directory: app
                     arguments:
                       - "-lc"
                       - "echo 'hello world'"
