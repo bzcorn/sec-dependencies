@@ -22,4 +22,5 @@ pipelines:
                 - exec:
                     command: /bin/bash
                     arguments:
+                      - "-lc"
                       - "/usr/bin/docker run --rm -v $PWD:/target stono/hawkeye"
